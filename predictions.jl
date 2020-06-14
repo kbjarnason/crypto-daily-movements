@@ -32,6 +32,9 @@ BTC = CSV.read("Coinbase_BTCUSD_d.csv")
 ETH = CSV.read("Coinbase_ETHUSD_d.csv")
 LTC = CSV.read("Coinbase_LTCUSD_d.csv")
 
+
+describe(BTC)
+
 #%%
 cryptos = [BTC, ETH, LTC]
 crypto_names = ["BTC", "ETH", "LTC"]
@@ -40,6 +43,9 @@ for (x,item) in enumerate(cryptos)
     item.LR =  append!([0.0], log.(item.Close[2:end]) - log.(item.Close[1:end-1]))
     cryptos[x] = item[2:end,:]
 end
+
+cryptos[1].LR
+
 
 
 
